@@ -47,7 +47,7 @@ object Server extends App {
       }}}
     }
 
-  val port = Option(sys.env("PORT")).getOrElse("3000").toInt
+  val port = sys.env.getOrElse("PORT", "3000").toInt
   val bindingFuture = Http().bindAndHandle(routes, "0.0.0.0", port)
   system.awaitTermination()
 }
