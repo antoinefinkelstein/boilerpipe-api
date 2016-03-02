@@ -2,8 +2,8 @@ package com.blikk.boilerpipeapi
 
 import java.io.StringReader
 
-import com.kohlschutter.boilerpipe.extractors.ArticleExtractor
-import com.kohlschutter.boilerpipe.sax.{BoilerpipeSAXInput, ImageExtractor, HTMLHighlighter}
+import de.l3s.boilerpipe.extractors.ArticleExtractor
+import de.l3s.boilerpipe.sax.{BoilerpipeSAXInput, ImageExtractor, HTMLHighlighter}
 import spray.json._
 
 import scala.collection.JavaConverters._
@@ -61,10 +61,6 @@ object Server extends App {
               img => img.getSrc
             })
             images.toJson
-          }
-
-          case ExtractionRequest(None, Some(url), _, _) => complete {
-            articleExtractor.getText(new java.net.URL(url))
           }
 
           case ExtractionRequest(Some(html), _, _, _) => complete {

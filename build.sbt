@@ -12,7 +12,8 @@ libraryDependencies := Seq(
   "com.typesafe.akka" % "akka-http-experimental_2.11" % "1.0",
   "com.typesafe.akka" % "akka-http-spray-json-experimental_2.11" % "1.0",
   "io.spray" %%  "spray-json" % "1.3.2",
-  "org.scalatest" % "scalatest_2.11" % "2.2.4" % "test"
+  "org.scalatest" % "scalatest_2.11" % "2.2.4" % "test",
+  "com.syncthemall" % "boilerpipe" % "1.2.2"
 )
 
 enablePlugins(JavaAppPackaging)
