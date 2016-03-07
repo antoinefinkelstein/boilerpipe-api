@@ -39,6 +39,11 @@ object Server extends App {
         val imageExtractor = ImageExtractor.getInstance()
 
         val hh = HTMLHighlighter.newExtractingInstance()
+        val jmap = new java.util.HashMap[String, java.util.Set[String]]()
+        jmap.put("BR", null)
+
+        hh.setTagWhitelist(jmap)
+
         req match {
           case ExtractionRequest(Some(html), _, Some(extract_html), _) => complete {
             val doc = new BoilerpipeSAXInput(new InputSource(new StringReader(html))).getTextDocument()
