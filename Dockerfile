@@ -1,10 +1,4 @@
-FROM java:8-jre
-
-# Install sbt
-RUN echo "deb http://dl.bintray.com/sbt/debian /" | tee -a /etc/apt/sources.list.d/sbt.list && \
-  apt-get update && \
-  apt-get install -y --force-yes sbt && \
-  apt-get clean
+FROM hseeberger/scala-sbt:latest
 
 COPY . /app
 WORKDIR /app
