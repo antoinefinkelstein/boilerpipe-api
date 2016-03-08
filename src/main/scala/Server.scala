@@ -2,8 +2,9 @@ package com.blikk.boilerpipeapi
 
 import java.io.StringReader
 
+import com.feedpresso.HTMLHighlighter
 import de.l3s.boilerpipe.extractors.ArticleExtractor
-import de.l3s.boilerpipe.sax.{BoilerpipeSAXInput, ImageExtractor, HTMLHighlighter}
+import de.l3s.boilerpipe.sax.{BoilerpipeSAXInput, ImageExtractor}
 import spray.json._
 
 import scala.collection.JavaConverters._
@@ -39,10 +40,6 @@ object Server extends App {
         val imageExtractor = ImageExtractor.getInstance()
 
         val hh = HTMLHighlighter.newExtractingInstance()
-        val jmap = new java.util.HashMap[String, java.util.Set[String]]()
-        jmap.put("BR", null)
-
-        hh.setTagWhitelist(jmap)
 
         req match {
           case ExtractionRequest(Some(html), _, Some(extract_html), _) => complete {
